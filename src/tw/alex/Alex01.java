@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/Alex01")
 public class Alex01 extends HttpServlet {
-       
+    private static int a;
+    private int b;
     
     public Alex01() {
         System.out.println("Alex01()");
@@ -24,8 +25,9 @@ public class Alex01 extends HttpServlet {
 		System.out.println("doGet()");
 		
 		PrintWriter pw = response.getWriter();
-		pw.append("Hello, World");
-		pw.append("1234567");
+		pw.append("Hello, World<br>");
+		pw.append("a = " + a++ + "<br>");
+		pw.append("b = " + b++ + "<br>");
 		pw.flush();
 		
 //		response.getWriter()
