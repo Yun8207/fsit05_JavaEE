@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.nio.file.Files;
 import java.util.Collection;
 
 import javax.servlet.ServletContext;
@@ -42,12 +43,19 @@ public class Alex11 extends HttpServlet {
 		InputStream in = upload.getInputStream();
 		BufferedInputStream bin = 
 				new BufferedInputStream(in);
-		byte[] buf = in.readAllBytes();
+		//byte[] buf = in.readAllBytes();
+		byte[] buf = new byte[4096]; int len;
+		
+		
 		bin.close();
 		try {
 			FileOutputStream fout = 
 				new FileOutputStream(new File(uploadPath, fname));
-			fout.write(buf);
+			//fout.write(buf);
+			while ((len=bin.read(buf)) != -1) {
+				fout.write(buf, 0, len);
+			}
+			
 			fout.flush();
 			fout.close();
 			status = "OK";
