@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import java.sql.Connection;
 
@@ -41,12 +42,15 @@ public class Alex22 extends HttpServlet {
 			if (rs.next()) {
 				String hPasswd = rs.getString("password");
 				if(AlexAPI.ckPasswd(passwd, hPasswd)) {
-					out.println("OK");
+					HttpSession session = request.getSession();
+					Member member = new Member(rs.getString("realname"), rs.getString("account"), 25);
+					session.setAttribute("member", member);
+					response.sendRedirect("Alex32");
 				}else {
-					out.println("XX1");
+					response.sendRedirect("Alex22.html");
 				}
 			}else {
-				out.println("XX2");
+				response.sendRedirect("Alex22.html");
 			}
 		}catch(Exception e) {
 			
