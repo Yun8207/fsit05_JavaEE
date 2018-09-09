@@ -29,7 +29,11 @@ public class Alex17 extends HttpServlet {
 		int result = model.add();
 		
 	//2. View
-		RequestDispatcher rd = request.getRequestDispatcher("Alex19?x="+ x +"&y=" + y +"&result=" + result);
+//		RequestDispatcher rd = request.getRequestDispatcher("Alex19?x="+ x +"&y=" + y +"&result=" + result);
+		RequestDispatcher rd = request.getRequestDispatcher("Alex19");
+		request.setAttribute("x", x);
+		request.setAttribute("y", y);
+		request.setAttribute("result", result+"");
 		rd.forward(request, response);
 	}
 

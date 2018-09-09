@@ -23,9 +23,14 @@ public class Alex19 extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
-		String x = request.getParameter("x");
-		String y = request.getParameter("y");
-		String result = request.getParameter("result");
+//		String x = request.getParameter("x");
+//		String y = request.getParameter("y");
+//		String result = request.getParameter("result");
+		String x = (String)request.getAttribute("x");
+		String y = (String)request.getAttribute("y");
+		String result = (String)request.getAttribute("result");
+		
+		
 		
 		try {
 			String htmlFile = loadTempView("mycal2.html");

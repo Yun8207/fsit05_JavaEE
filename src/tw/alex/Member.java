@@ -6,7 +6,7 @@ public class Member {
 	private int age;
 	public Member(String name, String account, int age) {
 		this.name = name; this.account = account;
-		this.age= age; this.account = account;
+		this.age= age;
 	}
 	public String getName() {return name;}
 	public int getAge() {return age;}
