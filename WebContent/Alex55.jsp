@@ -15,10 +15,10 @@
 <h1>Alex Small Company</h1>
 <hr>
 <form>	
-<input type ="text" name ="x" value="011">	+	
-<input type ="text" name ="y" value="011">	
+<input type ="text" name ="x" value="<%= x %>">	+	
+<input type ="text" name ="y" value="<%= y %>">	
 <input type="submit" value="=">	
-22</form>
+<%= result %></form>
 <hr>CS
 </body>
 </html>
