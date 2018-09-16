@@ -27,7 +27,7 @@ ${count }
 </sql:query>
 <h1>Alex Practice</h1>
 <hr>
-<a href="?page=${param.page -1 }">Prev</a> ${param.page } <a href="?page=${param.page +1 }">Next</a>
+<a href="?page=${param.page < 2 ? 1 : param.page -1 }">Prev</a> ${param.page } <a href="?page=${param.page +1 }">Next</a>
 <table width="100%" border="1px solid black">
 	<tr>
 		<th>ID</th>
