@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib version="2.0"
+        xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+        http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+   <tlib-version>2.0</tlib-version>
+   <short-name>mytag</short-name>
+   <uri></uri>
+   <tag>
+      <name>HelloAlex</name>
+      <tag-class>tw.alex.MyTag</tag-class>
+      <body-content>empty</body-content>
+   </tag>
+   <tag>
+      <name>tag2</name>
+      <tag-class>tw.alex.MyTag2</tag-class>
+      <body-content>scriptless</body-content>
+   </tag>
+   <tag>
+      <name>tag3</name>
+      <tag-class>tw.alex.MyTag3</tag-class>
+      <body-content>scriptless</body-content>
+      <attribute>
+      	<name>name</name>
+      </attribute>
+      <attribute>
+      	<name>price</name>
+      </attribute>
+      
+   </tag>
+</taglib>
