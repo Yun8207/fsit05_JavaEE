@@ -1,0 +1,45 @@
+<script>
+var xmlhttp;
+if (window.XMLHttpRequest) {
+    // code for modern browsers
+    xmlhttp = new XMLHttpRequest();
+    console.log("debug1");
+ } else {
+    // code for old IE browsers
+    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    console.log("debug2");
+}
+
+//alert('now' + xmlhttp.readyState);
+
+
+xmlhttp.onreadystatechange = callback;//=function(){}
+
+
+function callback(){
+	var state = xmlhttp.readyState;
+	var status = xmlhttp.status;
+	if (state == 4 && status == 200){
+		document.getElementById('result').innerHTML = xmlhttp.responseText;
+	}
+}
+
+function calc(){
+	var x = document.getElementById('x').value;
+	var y = document.getElementById('y').value;
+	
+	var url = "ajax06.jsp?";
+	xmlhttp.open('POST', url, true);
+	//console.log(x+y);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.send("x=" + x + "&y=" + y);
+}
+
+</script>
+<input type="text" id ="x"/>
++
+<input type="text" id ="y"/>
+<input type="button" onclick='calc()' value="="/>
+<span id='result'></span>
+
+
